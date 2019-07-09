@@ -10,7 +10,9 @@ public class Main {
         DupeChecker checker;
 
         try {
-            checker = new DupeChecker(directory);
+            SHA256DigestCalculator digestCalculator = new SHA256DigestCalculator();
+            checker = new DupeChecker(directory, digestCalculator);
+            checker.findDuplicates();
             checker.printDuplicates();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
