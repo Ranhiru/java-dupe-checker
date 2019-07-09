@@ -10,7 +10,7 @@ public class Main {
         DupeChecker checker;
 
         try {
-            SHA256DigestCalculator digestCalculator = new SHA256DigestCalculator();
+            XXHashDigestCalculator digestCalculator = new XXHashDigestCalculator();
             checker = new DupeChecker(directory, digestCalculator);
             checker.findDuplicates();
             checker.printDuplicates();
