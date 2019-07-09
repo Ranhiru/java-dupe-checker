@@ -7,19 +7,21 @@ import java.nio.file.Path;
 public class DupeChecker {
 
     private String directoryPath;
+    private FileDigestCalculator fileDigestCalculator;
 
-    public DupeChecker(String directoryPath) throws FileNotFoundException {
+    public DupeChecker(String directoryPath, FileDigestCalculator fileDigestCalculator) throws FileNotFoundException {
+        checkIfDirectoryExists(directoryPath);
+
         this.directoryPath = directoryPath;
-        checkIfDirectoryExists();
+        this.fileDigestCalculator = fileDigestCalculator;
     }
 
-    public void printDuplicates() {
-        System.out.println("Traversing " + directoryPath);
+    public void findDuplicates() {
     }
 
-    private void checkIfDirectoryExists() throws FileNotFoundException {
-        if (!directoryExists(directoryPath)) {
-            throw new FileNotFoundException(String.format("Directory not found - %s", directoryPath));
+    private void checkIfDirectoryExists(String path) throws FileNotFoundException {
+        if (!directoryExists(path)) {
+            throw new FileNotFoundException(String.format("Directory not found - %s", path));
         }
     }
 

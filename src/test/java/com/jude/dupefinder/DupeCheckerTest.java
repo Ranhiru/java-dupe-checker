@@ -15,6 +15,8 @@ public class DupeCheckerTest {
     public void constructor_GivenInvalidPath_ShouldThrowException() throws FileNotFoundException {
         thrown.expect(FileNotFoundException.class);
         String directoryPath = "/invalid/path";
-        new DupeChecker(directoryPath);
+
+        FileDigestCalculator mockDigestCalcutor = path -> null;
+        new DupeChecker(directoryPath, mockDigestCalcutor);
     }
 }
