@@ -19,7 +19,7 @@ public class DupeChecker {
 
     private void checkIfDirectoryExists() throws FileNotFoundException {
         if (!directoryExists(directoryPath)) {
-            throw new FileNotFoundException("Directory not found!");
+            throw new FileNotFoundException(String.format("Directory not found - %s", directoryPath));
         }
     }
 

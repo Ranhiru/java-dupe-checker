@@ -13,7 +13,7 @@ public class Main {
             checker = new DupeChecker(directory);
             checker.printDuplicates();
         } catch (FileNotFoundException e) {
-            System.out.println("Invalid directory!");
+            System.out.println(e.getMessage());
         }
     }
 }
